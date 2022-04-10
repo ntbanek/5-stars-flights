@@ -10,15 +10,24 @@
 </head>
 
 <body>
-    <div class="form-popup" id="myForm">
-        <form action="/" class="form-container">
+    <div class="form-popup" id="myForm" style="display: <%= loginDisplay %>">
+        <% if(success_msg!= '') { %>
+            <p><%=success_msg %> </p>
+            <% } %>
+            <% if(error_msg != '') { %>
+                <%= error_msg %> 
+              <% } %> 
+              <% if(error != '') { %>
+                <%= error %>
+              <% } %>
+        <form action="/login" class="form-container" method="post">
             <h1>Login</h1>
-
+            <input type="hidden" name="path" value="<%= typeof path != 'undefined' ? path : '/'%>" />
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" required>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
 
             <button type="submit" class="btn">Login</button>
             <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->

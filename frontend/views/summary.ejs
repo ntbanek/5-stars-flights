@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PODSUMOWANIE REZERWACJI</h1>
+    <p><%= flightData.departure_airport %> - <%= flightData.destination_airport %></p>
+    <p><%= flightData.date.slice(0,10) %></p>
+    <p>Cena za osobę: <%= flightData.price_euro %>€</p>
+    <p>Cena za dodatkowy bagaż: <%= luggage != 'Podręczny' ? 10 : 0 %>€</p>
+    <p><%= user.name %> <%= user.lastname %></p>
+    <p>Bagaż: <%= luggage %></p>
+    <p>Wybrane miejsca: 
+        <% chosen_seats.forEach(el => { %>
+      <li>
+        <%= el %>
+      </li>
+    <% }); %>
+    </p>
+    <p>Do zapłaty: <p id="to_pay"><%= ((flightData.price_euro + (luggage != 'Podręczny' ? 10 : 0)) * chosen_seats.length).toFixed(2) %> €</p></p>
+    <select name="currency" id="currency">
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+        <option value="PLN">PLN</option>
+    </select>
+    <p id="weather_dest"></p>
+    <a href="/">Przejdź do strony głównej</a>
+</body>
+<script>
+    const destination = "<%= flightData.destination_airport %>";
+    const flight_date = "<%= flightData.date %>";
+    const sum_price_euro = parseInt(document.getElementById("to_pay").innerText.substring(-1));
+    console.log(sum_price_euro)
+</script>
+<script src="./../js/summary.js"></script>
+</html>

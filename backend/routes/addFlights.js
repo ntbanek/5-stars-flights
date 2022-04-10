@@ -34,7 +34,7 @@ function getTakenSeatsRandomly() {
 }
 
 function getRandomAirport() {
-    const airports = ['Aberdeen', 'Amsterdam', 'Ateny', 'Barcelona', 'Bergen', 'Berlin', 'Birmingham', 'Budapeszt', 'Dublin', 'Frankfurt', 'Glasgow', 'Lizbona', 'Londyn', 'Warszawa', 'Katowice', 'Rzym', 'Paryż', 'Monachium', 'Madryt', 'Amsterdam', 'Bazylea']
+    const airports = ['Pekin','Dubaj','Tokio','Los Angeles','Londyn','Paryż','Frankfurt','Warszawa','Katowice','Hongkong']
     let randomAirport = airports[Math.floor(Math.random() * (airports.length))];
     return randomAirport;
 }

@@ -8,24 +8,22 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/" method="post">
-        <label for="departure_airport">Liczba pasażerów</label>
-        <select name="passengers_number" id="passengers_number">
-            <option value="1">1</option>
-            <option value="1">2</option>
-            <option value="1">3</option>
-            <option value="1">4</option>
-            <option value="1">5</option>
-            <option value="1">6</option>
+    <form name="reservation_details" id="reservation_details" action="/reserve" onsubmit="return validateForm()"  method="post">
+        <p>Liczba pasażerów: <%= passengersNumber %></p>
+        <label for="luggage">Bagaż</label>
+        <select name="luggage" id="luggage">
+            <option value="Podręczny">Podręczny</option>
+            <option value="Podręczny i rejestrowany - 10 kg">Podręczny i rejestrowany - 10 kg</option>
+            <option value="Podręczny i rejestrowany - 20 kg">Podręczny i rejestrowany - 20 kg</option>
         </select>
-        <button type="submit">Wyszukaj lot</button>
+        <p>Wybrane miejsca: </p>
+        <ul name="chosen_seats" id="chosen_seats"></ul>
+        <button type="submit">Zarezerwuj</button>
     </form>
     <div id="tooltip">
-        <h3>Popup title</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h3 id="tooltip_title"></h3>
+        <p id="tooltip_text"></p>
       </div>
-
     <svg id="airplane_seats"
         viewBox="0 0 1359.5662 1281.9012" height="17.804184in" width="18.882864in" version="1.0">
         <defs id="defs4916" />
@@ -675,11 +673,12 @@
     </svg>
 </body>
 <script>
-    const departure = "<%= flightData[0].departure_airport %>";
-    const destination = "<%= flightData[0].destination_airport %>";
-    const date = "<%= flightData[0].date %>";
-    const price = "<%= flightData[0].price_euro %>";
-    const seats = "<%= flightData[0].seats_taken %>";
+    const flight_id = "<%= flightData._id %>";
+    const departure = "<%= flightData.departure_airport %>";
+    const destination = "<%= flightData.destination_airport %>";
+    const date = "<%= flightData.date %>";
+    const price = "<%= flightData.price_euro %>";
+    const seats = "<%= flightData.seats_taken %>";
     const passengers_number = "<%= passengersNumber %>";
 </script>
 <script src="../js/flightDetails.js"></script>
