@@ -1,3 +1,61 @@
-body {
-    background-color: aqua;
+html {
+  font-family: "Catamaran", sans-serif;
 }
+
+body {
+  background-color: aqua;
+  background-image: url("./../img/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Catamaran", sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 30px;
+  gap: 12px;
+}
+
+.flightForm {
+  margin: auto;
+  max-width: 800px;
+  padding: 30px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.7333333333);
+}
+
+.rows {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.form-control {
+  width: auto;
+}
+
+.weather_info__small {
+  font-size: 0.8rem;
+}
+
+.flights_list {
+  margin: auto;
+  max-width: 800px;
+  padding: 30px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.7333333333);
+}
+
+/*# sourceMappingURL=index.css.map */

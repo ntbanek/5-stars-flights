@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="form-popup" id="myForm" style="display: <%= loginDisplay %>">
+    <div class="form-popup form-container" id="myForm" style="display: <%= loginDisplay %>">
         <% if(success_msg!= '') { %>
             <p><%=success_msg %> </p>
             <% } %>
@@ -20,7 +20,7 @@
               <% if(error != '') { %>
                 <%= error %>
               <% } %>
-        <form action="/login" class="form-container" method="post">
+        <form action="/login" method="post">
             <h1>Login</h1>
             <input type="hidden" name="path" value="<%= typeof path != 'undefined' ? path : '/'%>" />
             <label for="email"><b>Email</b></label>
@@ -28,11 +28,11 @@
 
             <label for="password"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" required>
-
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="btn">Zaloguj się</button>
             <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
         </form>
+        <button class="btn" id="back_btn">Wróć</button>
     </div>
 </body>
-
+<script src="./../js/login.js"></script>
 </html>

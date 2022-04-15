@@ -9,7 +9,10 @@ function getRandomDate() {
     let to = new Date(2023, 0, 1);
     from = from.getTime();
     to = to.getTime();
-    return new Date(from + Math.random() * (to - from));
+    let flight_date = new Date(from + Math.random() * (to - from));
+    flight_date.setMinutes(flight_date.getMinutes() + 30);
+    flight_date.setMinutes(0, 0, 0)
+    return flight_date;
 }
 
 function getRandomInt() {
