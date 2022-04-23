@@ -15,16 +15,14 @@
     <div class="summary">
     <h1>PODSUMOWANIE REZERWACJI</h1>
     <p><%= flightData.departure_airport %> - <%= flightData.destination_airport %></p>
-    <p><%= flightData.date.slice(0,10) %></p>
+    <p>Data lotu: <%= flightData.date.slice(0,10) %></p>
     <p>Cena za osobę: <%= flightData.price_euro %>€</p>
     <p>Cena za dodatkowy bagaż: <%= luggage != 'Podręczny' ? 10 : 0 %>€</p>
-    <p><%= user.name %> <%= user.lastname %></p>
+    <p>Imię i nazwisko kupującego: <%= user.name %> <%= user.lastname %></p>
     <p>Bagaż: <%= luggage %></p>
     <p>Wybrane miejsca: 
         <% chosen_seats.forEach(el => { %>
-      <li>
-        <%= el %>
-      </li>
+        <%= el %> 
     <% }); %>
     </p>
     <div class="row">
@@ -35,7 +33,7 @@
         <option value="PLN">PLN</option>
     </select>
     </div>
-    <p id="weather_dest"></p>
+    <p class="weather" id="weather_dest"></p>
     <a href="/">Przejdź do strony głównej</a>
 </div>
 </body>

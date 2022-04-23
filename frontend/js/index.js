@@ -13,6 +13,25 @@ airports.forEach((el, i) => {
 })
 
 
+document.getElementById("departure_airport").addEventListener('change', () => {
+    document.querySelectorAll("#destination_airport option").forEach(opt => {
+        opt.disabled = false;
+    if (opt.value == document.getElementById("departure_airport").value) {
+        opt.disabled = true;
+    }
+});
+})
+
+document.getElementById("destination_airport").addEventListener('change', () => {
+    document.querySelectorAll("#departure_airport option").forEach(opt => {
+        opt.disabled = false;
+    if (opt.value == document.getElementById("destination_airport").value) {
+        opt.disabled = true;
+    }
+});
+})
+
+
 if(document.getElementById('login_btn')) {
 document.getElementById('login_btn').addEventListener('click', () => {
     document.getElementById('myForm').style.display = 'block';

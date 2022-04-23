@@ -12,5 +12,8 @@
 .summary select {
   margin-left: 20px;
 }
+.summary .weather {
+  font-size: 0.8rem;
+}
 
 /*# sourceMappingURL=summary.css.map */

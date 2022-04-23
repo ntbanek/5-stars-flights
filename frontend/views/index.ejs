@@ -56,7 +56,7 @@
       <span class="weather_info__small" id="weather"></span>
     </div>
   </form>
-  <% if(locals.flightData) { %>
+  <% if(locals.flightData && locals.flightData[0]) { %>
   <div class="flights_list">
     
       <strong>Loty na trasie <%= flightData[0].departure_airport %> - <%= flightData[0].destination_airport %> od
@@ -92,9 +92,14 @@
         </td>
 
       </tr>
-      <% })}; %>
+      <% }); %>
     </table>
   </div>
+  <% } else if (locals.flightData) { %>
+    <div class="flights_list">
+      <p>Nie znaleziono żadnych lotów w wybranym terminie!</p>
+    </div>
+    <% }; %>
   
 </body>
 <script src="./../js/index.js"></script>
@@ -105,6 +110,13 @@
     "<%= typeof searchData != 'undefined' ? searchData.destination : 'Paryż' %>";
   document.getElementById('passengers_number').value =
     "<%= typeof searchData != 'undefined' ? searchData.passengers : '1' %>";
+
+    document.querySelectorAll("#destination_airport option").forEach(opt => {
+        opt.disabled = false;
+    if (opt.value == document.getElementById("departure_airport").value) {
+        opt.disabled = true;
+    }
+});
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
