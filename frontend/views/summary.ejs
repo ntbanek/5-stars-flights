@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Catamaran&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./../assets/css/index.css">
+    <link rel="stylesheet" href="./../assets/css/summary.css">
     <title>Document</title>
 </head>
 <body>
+    <div class="summary">
     <h1>PODSUMOWANIE REZERWACJI</h1>
     <p><%= flightData.departure_airport %> - <%= flightData.destination_airport %></p>
     <p><%= flightData.date.slice(0,10) %></p>
@@ -21,14 +27,17 @@
       </li>
     <% }); %>
     </p>
-    <p>Do zapłaty: <p id="to_pay"><%= ((flightData.price_euro + (luggage != 'Podręczny' ? 10 : 0)) * chosen_seats.length).toFixed(2) %> €</p></p>
-    <select name="currency" id="currency">
+    <div class="row">
+    <p>Do zapłaty: <span id="to_pay"><%= ((flightData.price_euro + (luggage != 'Podręczny' ? 10 : 0)) * chosen_seats.length).toFixed(2) %> €</span></p>
+    <select class="form-control" name="currency" id="currency">
         <option value="EUR">EUR</option>
         <option value="USD">USD</option>
         <option value="PLN">PLN</option>
     </select>
+    </div>
     <p id="weather_dest"></p>
     <a href="/">Przejdź do strony głównej</a>
+</div>
 </body>
 <script>
     const destination = "<%= flightData.destination_airport %>";

@@ -1,0 +1,19 @@
+<body>
+    <nav class="nav navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+          <img class="logo" src="./../assets/img/logo.png" alt="Logo">
+          <span class="brand">5-Stars Flights</span>
+        </a>
+        <div>
+          <% if(!locals.user) { %>
+        <button id="login_btn" class="btn btn-primary">Logowanie</button>
+        <% } else { %>
+          <span>Witaj, <%= user.name %>!</span>
+        <button id="logout_btn" class="btn btn-primary">Wyloguj</button>
+        <% } %>
+     
+        <button id="signup_btn" class="btn btn-primary">Rejestracja</button>
+        </div>
+      </nav>
+</body>
+<script src="./../js/nav.js"></script>

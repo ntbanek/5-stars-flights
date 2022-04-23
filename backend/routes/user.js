@@ -6,24 +6,27 @@ const router = express.Router();
 
 router.get('/signup', async function (req, res) {
     res.render('signup', {
-
     })
 })
 
 router.post('/login', async function (req, res, next) {
-    passport.authenticate('local', {
-        successRedirect: req.body.path,
-        failureRedirect: '/signup',
-        failureFlash: true,
-    })(req, res, next);
-})
+    passport.authenticate('local', function(err, user, info) {
+        if (err) { return next(err); }
+        if (!user) { return  res.render('index', {
+            loginDisplay: 'block',
+            error: "Niepoprawne dane!"
+        }); }
+        req.logIn(user, function(err) {
+          if (err) { return next(err); }
+          return res.redirect(req.body.path);
+        });
+      })(req, res, next);
+    });
 
 router.get('/logout', (req, res) => {
     req.logout();
-    req.flash('success_msg', 'Now logged out');
     res.redirect('/');
 })
-
 
 router.post('/postUserData', async function (req, res) { //req wysyłamy dane!
     const {
@@ -103,8 +106,6 @@ router.post('/postUserData', async function (req, res) { //req wysyłamy dane!
                             //save user
                             newUser.save()
                                 .then((value) => {
-                                    console.log(value)
-                                    req.flash('success_msg', 'You have now registered!')
                                     res.redirect('/login');
                                 })
                                 .catch(value => console.log(value));

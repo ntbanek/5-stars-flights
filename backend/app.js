@@ -20,6 +20,7 @@ app.set("view engine", "ejs");
 //app.use(expressEjsLayout);
 app.use("/js", express.static(path.join(__dirname, "./../frontend/js")))
 app.use("/assets", express.static(path.join(__dirname, "./../frontend/assets")))
+app.use('/favicon.ico', express.static(path.join(__dirname, "./../frontend/assets/img/favicon.ico")));
 
 //express session
 app.use(session({
@@ -31,12 +32,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use((req, res, next) => {
-    res.locals.success_msg = req.flash('success_msg');
-    res.locals.error_msg = req.flash('error_msg');
-    res.locals.error = req.flash('error');
-    next();
-})
 app.use("/", require('./routes/routes'));
 app.use("/", require('./routes/user'));
 

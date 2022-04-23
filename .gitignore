@@ -2,3 +2,4 @@
 *.svg
 .vs
 kolory.txt
+/frontend/node_modules

@@ -6,32 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/login.css">
-    <title>Document</title>
+    <title>Logowanie</title>
 </head>
 
 <body>
     <div class="form-popup form-container" id="myForm" style="display: <%= loginDisplay %>">
-        <% if(success_msg!= '') { %>
-            <p><%=success_msg %> </p>
-            <% } %>
-            <% if(error_msg != '') { %>
-                <%= error_msg %> 
-              <% } %> 
-              <% if(error != '') { %>
-                <%= error %>
-              <% } %>
         <form action="/login" method="post">
-            <h1>Login</h1>
-            <input type="hidden" name="path" value="<%= typeof path != 'undefined' ? path : '/'%>" />
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
 
-            <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" required>
-            <button type="submit" class="btn">Zaloguj się</button>
-            <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+            <% if(typeof error!= 'undefined') { %>
+                <p class="errors" id="error"><strong><%= error %></strong> </p>
+                <% } %>
+
+            <h3>Logowanie</h3>
+            <div class="form-group">
+            <input type="hidden" name="path" value="<%= typeof path != 'undefined' ? path : '/'%>" />
+            <label for="email"><b>E-mail</b></label>
+            <input class="form-control" type="text" placeholder="Enter Email" name="email" required>
+</div>
+<div class="form-group">
+            <label for="password"><b>Hasło</b></label>
+            <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Zaloguj się</button>
         </form>
-        <button class="btn" id="back_btn">Wróć</button>
+         <button class="btn btn-link" id="back_btn">Wróć</button>
     </div>
 </body>
 <script src="./../js/login.js"></script>

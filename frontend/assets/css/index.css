@@ -3,34 +3,32 @@ html {
 }
 
 body {
-  background-color: aqua;
-  background-image: url("./../img/background.jpg");
+  background: url("./../img/background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
   font-family: "Catamaran", sans-serif;
 }
 
-header {
-  text-align: center;
+.logo {
+  width: 50px;
 }
 
-.nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding: 30px;
-  gap: 12px;
+.brand {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .flightForm {
-  margin: auto;
+  margin: 20px auto;
   max-width: 800px;
   padding: 30px 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  background-color: rgba(255, 255, 255, 0.7333333333);
+  background-color: rgba(255, 255, 255, 0.9058823529);
 }
 
 .rows {
@@ -49,13 +47,17 @@ header {
 
 .flights_list {
   margin: auto;
+  margin-bottom: 20px;
   max-width: 800px;
   padding: 30px 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  background-color: rgba(255, 255, 255, 0.7333333333);
+  background-color: rgba(255, 255, 255, 0.9058823529);
+}
+.flights_list table {
+  gap: 40px;
 }
 
 /*# sourceMappingURL=index.css.map */

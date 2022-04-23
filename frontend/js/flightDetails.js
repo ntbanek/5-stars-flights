@@ -30,9 +30,9 @@ function showPopup() {
     popup.style.display = "block";
     const place_nr = this.id.substring(4);
     if (this.style.fill == 'red') {
-        setTooltipText("Miejsce zajęte", "Niestety miejsce " + place_nr + " jest już zarezerwowane. Znajdź inne miejsce.")
+        setTooltipText("Miejsce zajęte", "Niestety miejsce " + place_nr + " jest już zarezerwowane.")
     }
-    else if (this.style.fill == 'grey') {
+    else if (this.style.fill == 'green') {
         setTooltipText("Twoje miejsce", "Wybrałeś miejsce " + place_nr + ".")
     }
     else {
@@ -49,7 +49,7 @@ function reservePlace() {
     if(this.style.fill == 'red') {
         console.log("zajęte!")
     }
-    if(this.style.fill == 'grey') {
+    if(this.style.fill == 'green') {
         this.style.fill = 'white';
         for( var i = 0; i < reserved_places.length; i++){ 
             if ( reserved_places[i] === this.id) { 
@@ -62,12 +62,12 @@ function reservePlace() {
     else {
         if(passengers_number > reserved_places.length) {
             console.log('wolne!')
-            this.style.fill = 'grey';
+            this.style.fill = 'green';
             reserved_places.push(this.id)
             const seats_list = document.getElementById("chosen_seats");
             const li = document.createElement("li");
             li.id = this.id + "_li";
-            li.appendChild(document.createTextNode(this.id));
+            li.appendChild(document.createTextNode(this.id.substring(4)));
             seats_list.appendChild(li);
 
             const hidden_element = document.createElement("input");

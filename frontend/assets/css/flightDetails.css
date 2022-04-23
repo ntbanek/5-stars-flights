@@ -1,16 +1,27 @@
 body {
-  background-color: #33333f;
+  background: url("./../img/background2.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Catamaran", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
 }
 
 #tooltip {
-  width: 400px;
+  width: 250px;
   padding: 20px;
-  font-family: Arial, sans-serif;
-  font-size: 10pt;
   background-color: white;
   border-radius: 6px;
   position: absolute;
   display: none;
+  z-index: 9;
 }
 
 #tooltip::before {
@@ -22,6 +33,47 @@ body {
   position: absolute;
   left: -6px;
   top: 68px;
+}
+
+.airplane {
+  width: calc(70vw - 200px);
+  height: calc(100vh - 150px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  margin-top: 30px;
+}
+.airplane svg {
+  height: 230%;
+  min-width: 130%;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+}
+
+.detailsForm {
+  margin: 20px auto;
+  max-width: 800px;
+  height: fit-content;
+  padding: 30px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.7333333333);
+}
+
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .airplane {
+    width: calc(100vw - 50px);
+  }
+}
+ul {
+  padding: 0;
 }
 
 /*# sourceMappingURL=flightDetails.css.map */

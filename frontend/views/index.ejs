@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>5-Stars Flights</title>
   <link href='http://fonts.googleapis.com/css?family=Catamaran&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,13 +18,13 @@
   <% } else { %>
   <%- include('login'); -%>
   <% } %>
-  <header>
-    <h1>STRONA GŁÓWNA</h1>
-  </header>
-  <div class="nav">
-    <button id="login_btn" class="btn btn-primary">Logowanie</button>
-    <button id="signup_btn" class="btn btn-primary">Rejestracja</button>
-  </div>
+
+  <% if(locals.user) { %>
+    <%- include('nav', {username: user.name}); -%>
+    <% } else { %>
+    <%- include('nav'); -%>
+    <% } %>
+ 
   <form action="/getFlightData" class="flightForm" method="get">
     <div class="rows">
       <label for="departure_airport">Miejsce wylotu</label>
@@ -42,7 +42,7 @@
       </select>
     </div>
     <div class="rows">
-      <label for="date_from">Wylot od:</label>
+      <label for="date_from">Od:</label>
       <input class="form-control" type="date" name="date_from" id="date_from"
         value="<%= typeof searchData != 'undefined' ? searchData.date_from : '2022-04-01' %>">
       <label for="date_to">Do:</label>
@@ -56,22 +56,34 @@
       <span class="weather_info__small" id="weather"></span>
     </div>
   </form>
+  <% if(locals.flightData) { %>
   <div class="flights_list">
-    <table>
-      <% if(locals.flightData) { %>
+    
       <strong>Loty na trasie <%= flightData[0].departure_airport %> - <%= flightData[0].destination_airport %> od
         <%= searchData.date_from %> do <%= searchData.date_to %></strong>
+       <table class="table"> 
+        <thead class="thead-light">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Data i godzina</th>
+            <th scope="col">Cena/os.</th>
+            <th scope="col">Rezerwacja</th>
+          </tr>
+        </thead>
       <% flightData.forEach(function(flight, i) { %>
       <tr>
         <td>
-          <%= i+1 %>
+          <th scope="row">
+            <%= i+1 %>
+          </th>
+          
         </td>
         <td>
-          data:
-          <%= new Date(flight.date).toLocaleString("pl-PL" ,{year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute:'2-digit'}) %>,
+          <%= new Date(flight.date).toLocaleString("pl-PL" ,{year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute:'2-digit'}) %>
         </td>
         <td>
-          cena/os.: <%= flight.price_euro %> €
+          <%= flight.price_euro %> €
         </td>
         <td>
           <a href="/flightDetails?flightId=<%= flight._id %>&passengers=<%= searchData.passengers %>">
@@ -83,6 +95,7 @@
       <% })}; %>
     </table>
   </div>
+  
 </body>
 <script src="./../js/index.js"></script>
 <script>

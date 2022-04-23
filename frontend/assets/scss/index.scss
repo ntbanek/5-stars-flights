@@ -1,0 +1,62 @@
+html {
+    font-family: 'Catamaran', sans-serif;
+}
+
+body {
+    background: url('./../img/background.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Catamaran', sans-serif;
+}
+
+ .logo {
+     width: 50px;
+ }
+
+ .brand {
+     //font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     font-size: 1.2rem;
+     font-weight: bold;
+ }
+.flightForm {
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #ffffffe7;
+}
+
+.rows {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.form-control {
+    width: auto;
+}
+
+.weather_info__small {
+    font-size: 0.8rem;
+}
+
+.flights_list {
+    margin: auto;
+    margin-bottom: 20px;
+    max-width: 800px;
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #ffffffe7;
+
+    table {
+        gap: 40px;
+    }
+}

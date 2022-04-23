@@ -8,18 +8,29 @@ const router = express.Router();
 
 
 router.get('/', async function (req, res) {
-    res.render('index', {
-        loginDisplay: 'none'
+    console.log
+    if(req.isAuthenticated)
+    {
+        res.render('index', {
+        loginDisplay: 'none',
+        user: req.user
     })
-})
+    }
+    else
+    {
+        res.render('index', {
+            loginDisplay: 'none'
+        })
+    }
 
+})
 
 router.get('/login', (req, res) => {
     res.render('index', {
-        loginDisplay: 'none'
+        loginDisplay: 'none',
+        user: req.user
     })
 })
-
 
 router.get('/getFlightData', async function (req, res) {
     const findings = await Flight.find({
@@ -38,11 +49,22 @@ router.get('/getFlightData', async function (req, res) {
 
     flights_list.sort(sort_data);
 
-    await res.render('index', {
+    if(req.isAuthenticated) {
+    res.render('index', {
+        loginDisplay: 'none',
+        searchData: req.query,
+        flightData: flights_list,
+        user: req.user
+    })
+}
+else
+{
+    res.render('index', {
         loginDisplay: 'none',
         searchData: req.query,
         flightData: flights_list
     })
+}
 })
 
 router.get('/flightDetails', ensureAuthenticated, async function (req, res) {
@@ -51,7 +73,8 @@ router.get('/flightDetails', ensureAuthenticated, async function (req, res) {
     });
     await res.render('flightDetails', {
         passengersNumber: req.query.passengers,
-        flightData: JSON.parse(JSON.stringify(findings))
+        flightData: JSON.parse(JSON.stringify(findings)),
+        user: req.user
     })
 })
 
