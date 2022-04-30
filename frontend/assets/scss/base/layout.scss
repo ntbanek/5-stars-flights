@@ -1,10 +1,8 @@
-.index__body {
-    background: url('./../../img/background.jpg') no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-family: 'Catamaran', sans-serif;
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+.index__body, .signup__body, .summary__body {
+    @include backgroundImage('/assets/img/background.jpg');
 }
 
  .nav {
@@ -17,22 +15,9 @@
      width: 50px;
  }
 
- .nav__brand {
-     font-size: 1.2rem;
-     font-weight: bold;
- }
-
-
 .flightForm {
-    margin: 20px auto;
-    max-width: 800px;
-    padding: 30px 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    background-color: #ffffffe7;
 
+    @include styleBox(800px, 10px,$boxBackgroundColor);
     
 .form-control {
     width: auto;
@@ -45,21 +30,9 @@
     gap: 15px;
 }
 
-
-.flightForm__weather {
-    font-size: 0.8rem;
-}
-
 .flightsList {
-    margin: auto;
-    margin-bottom: 20px;
-    max-width: 800px;
-    padding: 30px 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    background-color: #ffffffe7;
+
+    @include styleBox(800px, 20px,$boxBackgroundColorLess);
 
     table {
         gap: 40px;
@@ -67,14 +40,8 @@
 }
 
 .signupForm {
-    margin: 20px auto;
-    max-width: 500px;
-    padding: 30px 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 7px;
-    background-color: #ffffffe7;
+
+    @include styleBox(500px, 7px,$boxBackgroundColorLess);
 
     .form-control {
     width:300px;
@@ -82,17 +49,16 @@
 }
 
 .summary {
-    margin: 20px auto;
-    max-width: 800px;
-    padding: 30px 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    background-color: #ffffffe7;
-    font-size: 1.1em;
+
+    @include styleBox(800px, 5px,$boxBackgroundColorLess);
 
     select {
         margin-left:20px;
+        width: 100px;
     }
+
+}
+
+
+@media (max-width: $bp1) {
 }

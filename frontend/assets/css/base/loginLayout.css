@@ -2,9 +2,7 @@ login__body {
   box-sizing: border-box;
 }
 
-/* The popup form - hidden by default */
 .loginForm {
-  /* display: none; */
   position: fixed;
   left: 50%;
   top: 50%;
@@ -22,7 +20,6 @@ login__body {
 .loginForm form button {
   float: right;
 }
-
 .loginForm input[type=text],
 .loginForm input[type=password] {
   width: 100%;

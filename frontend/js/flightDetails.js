@@ -77,7 +77,6 @@ function reservePlace() {
             hidden_element.value = this.id.substring(4);
             seats_list.appendChild(hidden_element);
             showPopup.call(this);
-            //showPopup();
         }
         else
         {

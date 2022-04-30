@@ -1,10 +1,6 @@
 .flightDetails__body {
-  background: url("./../../img/background2.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url("/assets/img/background2.jpg") no-repeat center center fixed;
   background-size: cover;
-  font-family: "Catamaran", sans-serif;
 }
 
 .flightDetails__container {
@@ -53,13 +49,13 @@
 .flightDetails__form {
   margin: 20px auto;
   max-width: 800px;
-  height: fit-content;
   padding: 30px 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   background-color: rgba(255, 255, 255, 0.7333333333);
+  height: fit-content;
 }
 
 @media (max-width: 800px) {

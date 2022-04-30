@@ -1,10 +1,9 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
 .flightDetails__body {
-    background: url('./../../img/background2.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-family: 'Catamaran', sans-serif;
+
+    @include backgroundImage('/assets/img/background2.jpg');
 }
 
 .flightDetails__container {
@@ -14,11 +13,10 @@
     gap: 30px;
 }
 
-
 .flightDetails__tooltip {
     width: 250px;
     padding: 20px;
-    background-color: white;
+    background-color: $tooltipBackgroundColor;
     border-radius: 6px;
     position: absolute;
     display: none;
@@ -54,15 +52,10 @@
 }
 
 .flightDetails__form {
-    margin: 20px auto;
-    max-width: 800px;
+
+    @include styleBox(800px, 10px,$boxBackgroundColor);
     height: fit-content;
-    padding: 30px 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    background-color: #ffffffbb;
+
 }
 
 @media (max-width: 800px) {

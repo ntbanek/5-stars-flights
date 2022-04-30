@@ -1,10 +1,6 @@
-.index__body {
-  background: url("./../../img/background.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+.index__body, .signup__body, .summary__body {
+  background: url("/assets/img/background.jpg") no-repeat center center fixed;
   background-size: cover;
-  font-family: "Catamaran", sans-serif;
 }
 
 .nav .btn {
@@ -15,11 +11,6 @@
   width: 50px;
 }
 
-.nav__brand {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
 .flightForm {
   margin: 20px auto;
   max-width: 800px;
@@ -27,8 +18,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  background-color: rgba(255, 255, 255, 0.9058823529);
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.7333333333);
 }
 .flightForm .form-control {
   width: auto;
@@ -40,13 +31,8 @@
   gap: 15px;
 }
 
-.flightForm__weather {
-  font-size: 0.8rem;
-}
-
 .flightsList {
-  margin: auto;
-  margin-bottom: 20px;
+  margin: 20px auto;
   max-width: 800px;
   padding: 30px 60px;
   display: flex;
@@ -82,10 +68,10 @@
   align-items: center;
   gap: 5px;
   background-color: rgba(255, 255, 255, 0.9058823529);
-  font-size: 1.1em;
 }
 .summary select {
   margin-left: 20px;
+  width: 100px;
 }
 
 /*# sourceMappingURL=layout.css.map */

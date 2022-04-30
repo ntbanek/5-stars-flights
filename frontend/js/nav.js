@@ -1,6 +1,6 @@
 if(document.getElementById('login_btn')) {
     document.getElementById('login_btn').addEventListener('click', () => {
-        document.getElementById('myForm').style.display = 'block';
+        document.getElementById('login_form').style.display = 'block';
     })
     }
     else {

@@ -34,7 +34,7 @@ document.getElementById("destination_airport").addEventListener('change', () => 
 
 if(document.getElementById('login_btn')) {
 document.getElementById('login_btn').addEventListener('click', () => {
-    document.getElementById('myForm').style.display = 'block';
+    document.getElementById('login_form').style.display = 'block';
 })
 }
 else {
@@ -44,7 +44,7 @@ else {
 }
 
 document.getElementById('back_btn').addEventListener('click', () => {
-    document.getElementById('myForm').style.display = 'none';
+    document.getElementById('login_form').style.display = 'none';
 })
 
 
