@@ -8,4 +8,4 @@ module.exports = {
         user_path: req.originalUrl
     })
     }
-    }
+    } 

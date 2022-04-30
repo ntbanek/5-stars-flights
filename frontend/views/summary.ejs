@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,37 +8,40 @@
     <link rel="stylesheet" href="./../assets/css/index.css">
     <title>Summary</title>
 </head>
+
 <body class="summary__body">
     <div class="summary">
-    <h1>PODSUMOWANIE REZERWACJI</h1>
-    <p><%= flightData.departure_airport %> - <%= flightData.destination_airport %></p>
-    <p>Data lotu: <%= flightData.date.slice(0,10) %></p>
-    <p>Cena za osobę: <%= flightData.price_euro %>€</p>
-    <p>Cena za dodatkowy bagaż: <%= luggage != 'Podręczny' ? 10 : 0 %>€</p>
-    <p>Imię i nazwisko kupującego: <%= user.name %> <%= user.lastname %></p>
-    <p>Bagaż: <%= luggage %></p>
-    <p>Wybrane miejsca: 
-        <% chosen_seats.forEach(el => { %>
-        <%= el %> 
-    <% }); %>
-    </p>
-    <div class="row">
-    <p>Do zapłaty: <span id="to_pay"><%= ((flightData.price_euro + (luggage != 'Podręczny' ? 10 : 0)) * chosen_seats.length).toFixed(2) %> €</span></p>
-    <select class="form-control" name="currency" id="currency">
-        <option value="EUR">EUR</option>
-        <option value="USD">USD</option>
-        <option value="PLN">PLN</option>
-    </select>
+        <h1>PODSUMOWANIE REZERWACJI</h1>
+        <p><%= flightData.departure_airport %> - <%= flightData.destination_airport %></p>
+        <p>Data lotu: <%= flightData.date.slice(0,10) %></p>
+        <p>Cena za osobę: <%= flightData.price_euro %>€</p>
+        <p>Cena za dodatkowy bagaż: <%= luggage != 'Podręczny' ? 10 : 0 %>€</p>
+        <p>Imię i nazwisko kupującego: <%= user.name %> <%= user.lastname %></p>
+        <p>Bagaż: <%= luggage %></p>
+        <p>Wybrane miejsca:
+            <% chosen_seats.forEach(el => { %>
+            <%= el %>
+            <% }); %>
+        </p>
+        <div class="row">
+            <p>Do zapłaty: <span
+                    id="to_pay"><%= ((flightData.price_euro + (luggage != 'Podręczny' ? 10 : 0)) * chosen_seats.length).toFixed(2) %>
+                    €</span></p>
+            <select class="form-control" name="currency" id="currency">
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="PLN">PLN</option>
+            </select>
+        </div>
+        <p class="summary__weather" id="weather_dest"></p>
+        <a href="/">Przejdź do strony głównej</a>
     </div>
-    <p class="summary__weather" id="weather_dest"></p>
-    <a href="/">Przejdź do strony głównej</a>
-</div>
 </body>
 <script>
     const destination = "<%= flightData.destination_airport %>";
     const flight_date = "<%= flightData.date %>";
     const sum_price_euro = parseInt(document.getElementById("to_pay").innerText.substring(-1));
-    console.log(sum_price_euro)
 </script>
 <script src="./../js/summary.js"></script>
+
 </html>

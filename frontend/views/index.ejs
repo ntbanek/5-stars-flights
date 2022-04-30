@@ -17,11 +17,11 @@
   <% } %>
 
   <% if(locals.user) { %>
-    <%- include('nav', {username: user.name}); -%>
-    <% } else { %>
-    <%- include('nav'); -%>
-    <% } %>
- 
+  <%- include('nav', {username: user.name}); -%>
+  <% } else { %>
+  <%- include('nav'); -%>
+  <% } %>
+
   <form action="/getFlightData" class="flightForm" method="get">
     <div class="flightForm__rows">
       <label for="departure_airport">Miejsce wylotu</label>
@@ -55,26 +55,26 @@
   </form>
   <% if(locals.flightData && locals.flightData[0]) { %>
   <div class="flightsList">
-    
-      <strong>Loty na trasie <%= flightData[0].departure_airport %> - <%= flightData[0].destination_airport %> od
-        <%= searchData.date_from %> do <%= searchData.date_to %></strong>
-       <table class="table"> 
-        <thead class="thead-light">
-          <tr>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col">Data i godzina</th>
-            <th scope="col">Cena/os.</th>
-            <th scope="col">Rezerwacja</th>
-          </tr>
-        </thead>
+
+    <strong>Loty na trasie <%= flightData[0].departure_airport %> - <%= flightData[0].destination_airport %> od
+      <%= searchData.date_from %> do <%= searchData.date_to %></strong>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col">Data i godzina</th>
+          <th scope="col">Cena/os.</th>
+          <th scope="col">Rezerwacja</th>
+        </tr>
+      </thead>
       <% flightData.forEach(function(flight, i) { %>
       <tr>
         <td>
-          <th scope="row">
-            <%= i+1 %>
-          </th>
-          
+        <th scope="row">
+          <%= i+1 %>
+        </th>
+
         </td>
         <td>
           <%= new Date(flight.date).toLocaleString("pl-PL" ,{year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute:'2-digit'}) %>
@@ -93,11 +93,11 @@
     </table>
   </div>
   <% } else if (locals.flightData) { %>
-    <div class="flightsList">
-      <p>Nie znaleziono żadnych lotów w wybranym terminie!</p>
-    </div>
-    <% }; %>
-  
+  <div class="flightsList">
+    <p>Nie znaleziono żadnych lotów w wybranym terminie!</p>
+  </div>
+  <% }; %>
+
 </body>
 <script src="./../js/index.js"></script>
 <script>
@@ -108,18 +108,12 @@
   document.getElementById('passengers_number').value =
     "<%= typeof searchData != 'undefined' ? searchData.passengers : '1' %>";
 
-    document.querySelectorAll("#destination_airport option").forEach(opt => {
-        opt.disabled = false;
+  document.querySelectorAll("#destination_airport option").forEach(opt => {
+    opt.disabled = false;
     if (opt.value == document.getElementById("departure_airport").value) {
-        opt.disabled = true;
+      opt.disabled = true;
     }
-});
+  });
 </script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </html>

@@ -31,11 +31,9 @@ function showPopup() {
     const place_nr = this.id.substring(4);
     if (this.style.fill == 'red') {
         setTooltipText("Miejsce zajęte", "Niestety miejsce " + place_nr + " jest już zarezerwowane.")
-    }
-    else if (this.style.fill == 'green') {
+    } else if (this.style.fill == 'green') {
         setTooltipText("Twoje miejsce", "Wybrałeś miejsce " + place_nr + ".")
-    }
-    else {
+    } else {
         setTooltipText("Miejsce wolne", "Możesz wybrać miejsce " + place_nr + ".")
     }
 }
@@ -46,21 +44,20 @@ function hidePopup() {
 }
 
 function reservePlace() {
-    if(this.style.fill == 'red') {
+    if (this.style.fill == 'red') {
         console.log("zajęte!")
     }
-    if(this.style.fill == 'green') {
+    if (this.style.fill == 'green') {
         this.style.fill = 'white';
-        for( var i = 0; i < reserved_places.length; i++){ 
-            if ( reserved_places[i] === this.id) { 
-                reserved_places.splice(i, 1); 
+        for (var i = 0; i < reserved_places.length; i++) {
+            if (reserved_places[i] === this.id) {
+                reserved_places.splice(i, 1);
             }
         }
         document.getElementById("chosen_seats").removeChild(document.getElementById(this.id + "_li"));
         document.getElementById("chosen_seats").removeChild(document.getElementById(this.id + "_hidden"));
-    }
-    else {
-        if(passengers_number > reserved_places.length) {
+    } else {
+        if (passengers_number > reserved_places.length) {
             console.log('wolne!')
             this.style.fill = 'green';
             reserved_places.push(this.id)
@@ -77,14 +74,12 @@ function reservePlace() {
             hidden_element.value = this.id.substring(4);
             seats_list.appendChild(hidden_element);
             showPopup.call(this);
-        }
-        else
-        {
+        } else {
             setTooltipText("Za dużo miejsc!", "Wybrałeś odpowiednią liczbę miejsc. Aby zrezygnować z rezerwacji, kliknij wybrane miejsce ponownie.")
         }
-        
+
     }
-    
+
 
 }
 
@@ -94,7 +89,7 @@ function setTooltipText(title, text) {
 }
 
 function validateForm() {
-    if(passengers_number > reserved_places.length) {
+    if (passengers_number > reserved_places.length) {
         alert("Nie wybrałeś miejsc dla wszystkich pasażerów!")
         return false;
     }

@@ -5,30 +5,35 @@ const passport = require('passport');
 const router = express.Router();
 
 router.get('/signup', async function (req, res) {
-    res.render('signup', {
-    })
+    res.render('signup', {})
 })
 
 router.post('/login', async function (req, res, next) {
-    passport.authenticate('local', function(err, user, info) {
-        if (err) { return next(err); }
-        if (!user) { return  res.render('index', {
-            loginDisplay: 'block',
-            error: "Niepoprawne dane!"
-        }); }
-        req.logIn(user, function(err) {
-          if (err) { return next(err); }
-          return res.redirect(req.body.path);
+    passport.authenticate('local', function (err, user, info) {
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            return res.render('index', {
+                loginDisplay: 'block',
+                error: "Niepoprawne dane!"
+            });
+        }
+        req.logIn(user, function (err) {
+            if (err) {
+                return next(err);
+            }
+            return res.redirect(req.body.path);
         });
-      })(req, res, next);
-    });
+    })(req, res, next);
+});
 
 router.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/');
 })
 
-router.post('/postUserData', async function (req, res) { //req wysyłamy dane!
+router.post('/postUserData', async function (req, res) {
     const {
         email,
         password,
@@ -50,7 +55,6 @@ router.post('/postUserData', async function (req, res) { //req wysyłamy dane!
         });
     }
 
-    //check if password is more than 6 characters
     if (password.length < 6) {
         errors.push({
             msg: 'Zbyt krótkie hasło!'
@@ -67,7 +71,7 @@ router.post('/postUserData', async function (req, res) { //req wysyłamy dane!
             date_of_birth: date_of_birth
         })
     } else {
-        //validation passed
+
         await User.findOne({
             email: email
         }).exec((err, user) => {
@@ -95,15 +99,11 @@ router.post('/postUserData', async function (req, res) { //req wysyłamy dane!
                     date_of_birth: date_of_birth
                 });
 
-                //const insertDoc = await new User({login: req.body.login, password: req.body.password, name: req.body.name, lastname: req.body.lastname, age: req.body.age})
-                // console.log(insertDoc)
                 bcrypt.genSalt(10, (err, salt) =>
                     bcrypt.hash(newUser.password, salt,
                         (err, hash) => {
                             if (err) throw err;
-                            //save pass to hash
                             newUser.password = hash;
-                            //save user
                             newUser.save()
                                 .then((value) => {
                                     res.redirect('/login');

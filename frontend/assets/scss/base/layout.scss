@@ -61,4 +61,17 @@
 
 
 @media (max-width: $bp1) {
+
+    .flightForm, .flightsList {
+        max-width: 450px;
+    }
+    .flightForm__rows {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: $bp2) and (max-width:$bp3) {
+    .flightForm, .flightsList {
+        max-width: 600px;
+    }
 }

@@ -8,16 +8,12 @@ const router = express.Router();
 
 
 router.get('/', async function (req, res) {
-    console.log
-    if(req.isAuthenticated)
-    {
+    if (req.isAuthenticated) {
         res.render('index', {
-        loginDisplay: 'none',
-        user: req.user
-    })
-    }
-    else
-    {
+            loginDisplay: 'none',
+            user: req.user
+        })
+    } else {
         res.render('index', {
             loginDisplay: 'none'
         })
@@ -49,22 +45,20 @@ router.get('/getFlightData', async function (req, res) {
 
     flights_list.sort(sort_data);
 
-    if(req.isAuthenticated) {
-    res.render('index', {
-        loginDisplay: 'none',
-        searchData: req.query,
-        flightData: flights_list,
-        user: req.user
-    })
-}
-else
-{
-    res.render('index', {
-        loginDisplay: 'none',
-        searchData: req.query,
-        flightData: flights_list
-    })
-}
+    if (req.isAuthenticated) {
+        res.render('index', {
+            loginDisplay: 'none',
+            searchData: req.query,
+            flightData: flights_list,
+            user: req.user
+        })
+    } else {
+        res.render('index', {
+            loginDisplay: 'none',
+            searchData: req.query,
+            flightData: flights_list
+        })
+    }
 })
 
 router.get('/flightDetails', ensureAuthenticated, async function (req, res) {
@@ -85,7 +79,7 @@ router.post('/reserve', async function (req, res) {
     const newReservation = new Reservation({
         user: req.user.email,
         flight_id: req.body.flightId,
-        seats:  req.body.seats,
+        seats: req.body.seats,
         luggage: req.body.luggage
     });
     await newReservation.save();
@@ -98,25 +92,5 @@ router.post('/reserve', async function (req, res) {
         luggage: req.body.luggage
     })
 })
-
-//tylko do testów: USUNĄĆ POTEM!!!
-router.get('/reserve', async function (req, res) {
-    res.render('summary', {
-        flightData: {     
-            departure_airport: "Warszawa",
-            destination_airport: "Rzym",
-            date: '2022-07-08',
-            price_euro: 120,
-            seats_taken: ['1B'] },
-        user: {
-            email: 'aaa@aaa.pl',
-            name: "natalia",
-            lastname: "august"
-        },
-        chosen_seats: ['1C'],
-        luggage: 'Podręczny'
-    })
-})
-
 
 module.exports = router;

@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-//const expressEjsLayout = require('express-ejs-layouts')
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
@@ -17,18 +16,17 @@ app.use(express.json());
 
 app.set("views", path.join(__dirname, "./../frontend/views"));
 app.set("view engine", "ejs");
-//app.use(expressEjsLayout);
 app.use("/js", express.static(path.join(__dirname, "./../frontend/js")))
 app.use("/assets", express.static(path.join(__dirname, "./../frontend/assets")))
 app.use('/favicon.ico', express.static(path.join(__dirname, "./../frontend/assets/img/favicon.ico")));
 
-//express session
+
 app.use(session({
     secret: 'secret',
     resave: true,
     saveUninitialized: true
 }));
-//use flash
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

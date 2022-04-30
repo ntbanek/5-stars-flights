@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,49 +8,57 @@
     <title>Rejestracja</title>
     <link rel="stylesheet" href="./../assets/css/index.css">
 </head>
+
 <body class="signup__body">
     <% if(locals.user) { %>
-        <%- include('nav', {username: user.name}); -%>
-        <% } else { %>
-        <%- include('nav'); -%>
-        <% } %>
-        
+    <%- include('nav', {username: user.name}); -%>
+    <% } else { %>
+    <%- include('nav'); -%>
+    <% } %>
+
     <%- include('login', {loginDisplay: 'none'}); -%>
     <% if(typeof errors!= 'undefined') { %>
-        <%    errors.forEach(function(error){ %>
-        <p> <%= error.msg %></p>
-        <%    })        %>
-        <% } %>
+    <%    errors.forEach(function(error){ %>
+    <p> <%= error.msg %></p>
+    <% }) %>
+    <% } %>
 
     <form class="signupForm" action="/postUserData" method="post">
         <h2>Formularz Rejestracyjny</h2>
         <label for="email">E-mail
-            <input class="form-control" type="text" name="email" id="email" placeholder="Podaj swój e-mail" value="<%= typeof email != 'undefined' ? email : '' %>">
+            <input class="form-control" type="text" name="email" id="email" placeholder="Podaj swój e-mail"
+                value="<%= typeof email != 'undefined' ? email : '' %>">
         </label>
         <br>
         <label for="password">Hasło
-            <input class="form-control" type="password" name="password" id="password" placeholder="Podaj swoje hasło" value="<%= typeof password != 'undefined' ? password : '' %>">
+            <input class="form-control" type="password" name="password" id="password" placeholder="Podaj swoje hasło"
+                value="<%= typeof password != 'undefined' ? password : '' %>">
         </label>
         <br>
         <label for="password2">Powtórz hasło
-            <input class="form-control" type="password" name="password2" id="password2" placeholder="Podaj swoje hasło" value="<%= typeof password2 != 'undefined' ? password2 : '' %>">
+            <input class="form-control" type="password" name="password2" id="password2" placeholder="Podaj swoje hasło"
+                value="<%= typeof password2 != 'undefined' ? password2 : '' %>">
         </label>
         <br>
         <label for="name">Imię
-            <input class="form-control" type="text" name="name" id="name" placeholder="Podaj swoje imię" value="<%= typeof name != 'undefined' ? name : '' %>">
+            <input class="form-control" type="text" name="name" id="name" placeholder="Podaj swoje imię"
+                value="<%= typeof name != 'undefined' ? name : '' %>">
         </label>
         <br>
         <label for="lastname">Nazwisko
-            <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Podaj swoje nazwisko" value="<%= typeof lastname != 'undefined' ? lastname : '' %>">
+            <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Podaj swoje nazwisko"
+                value="<%= typeof lastname != 'undefined' ? lastname : '' %>">
         </label>
         <br>
         <label for="date_of_birth">Data urodzenia
-            <input class="form-control" type="date" name="date_of_birth" id="date_of_birth" value="<%= typeof date_of_birth != 'undefined' ? date_of_birth : '' %>">
+            <input class="form-control" type="date" name="date_of_birth" id="date_of_birth"
+                value="<%= typeof date_of_birth != 'undefined' ? date_of_birth : '' %>">
         </label>
         <br>
         <button type="submit" class="btn btn-primary">Zarejestruj się</button>
         <a href="/">Wróć strony głównej</a>
     </form>
-    
+
 </body>
+
 </html>
