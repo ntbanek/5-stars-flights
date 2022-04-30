@@ -1,5 +1,5 @@
-body {
-  background: url("./../img/background2.jpg") no-repeat center center fixed;
+.flightDetails__body {
+  background: url("./../../img/background2.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -7,14 +7,14 @@ body {
   font-family: "Catamaran", sans-serif;
 }
 
-.container {
+.flightDetails__container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 30px;
 }
 
-#tooltip {
+.flightDetails__tooltip {
   width: 250px;
   padding: 20px;
   background-color: white;
@@ -23,8 +23,7 @@ body {
   display: none;
   z-index: 9;
 }
-
-#tooltip::before {
+.flightDetails__tooltip::before {
   content: "";
   width: 12px;
   height: 12px;
@@ -35,7 +34,7 @@ body {
   top: 68px;
 }
 
-.airplane {
+.flightDetails__airplane {
   width: calc(70vw - 200px);
   height: calc(100vh - 150px);
   overflow-y: scroll;
@@ -43,7 +42,7 @@ body {
   scroll-behavior: smooth;
   margin-top: 30px;
 }
-.airplane svg {
+.flightDetails__airplane svg {
   height: 230%;
   min-width: 130%;
   left: 50%;
@@ -51,7 +50,7 @@ body {
   transform: translateX(-50%);
 }
 
-.detailsForm {
+.flightDetails__form {
   margin: 20px auto;
   max-width: 800px;
   height: fit-content;
@@ -64,16 +63,17 @@ body {
 }
 
 @media (max-width: 800px) {
-  .container {
+  .flightDetails__container {
     flex-direction: column;
+    align-items: center;
   }
 
-  .airplane {
+  .flightDetails__airplane {
     width: calc(100vw - 50px);
   }
 }
-ul {
+.flightDetails__form--seats {
   padding: 0;
 }
 
-/*# sourceMappingURL=flightDetails.css.map */
+/*# sourceMappingURL=flightDetailsLayout.css.map */

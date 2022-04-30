@@ -1,9 +1,5 @@
-html {
-  font-family: "Catamaran", sans-serif;
-}
-
-body {
-  background: url("./../img/background.jpg") no-repeat center center fixed;
+.index__body {
+  background: url("./../../img/background.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -11,11 +7,15 @@ body {
   font-family: "Catamaran", sans-serif;
 }
 
-.logo {
+.nav .btn {
+  margin-left: 10px;
+}
+
+.nav__logo {
   width: 50px;
 }
 
-.brand {
+.nav__brand {
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -30,22 +30,21 @@ body {
   gap: 20px;
   background-color: rgba(255, 255, 255, 0.9058823529);
 }
+.flightForm .form-control {
+  width: auto;
+}
 
-.rows {
+.flightForm__rows {
   display: flex;
   flex-direction: row;
   gap: 15px;
 }
 
-.form-control {
-  width: auto;
-}
-
-.weather_info__small {
+.flightForm__weather {
   font-size: 0.8rem;
 }
 
-.flights_list {
+.flightsList {
   margin: auto;
   margin-bottom: 20px;
   max-width: 800px;
@@ -56,8 +55,157 @@ body {
   gap: 20px;
   background-color: rgba(255, 255, 255, 0.9058823529);
 }
-.flights_list table {
+.flightsList table {
   gap: 40px;
+}
+
+.signupForm {
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 30px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  background-color: rgba(255, 255, 255, 0.9058823529);
+}
+.signupForm .form-control {
+  width: 300px;
+}
+
+.summary {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 30px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background-color: rgba(255, 255, 255, 0.9058823529);
+  font-size: 1.1em;
+}
+.summary select {
+  margin-left: 20px;
+}
+
+login__body {
+  box-sizing: border-box;
+}
+
+/* The popup form - hidden by default */
+.loginForm {
+  /* display: none; */
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #f1f1f1;
+  z-index: 9;
+  max-width: 300px;
+  padding: 50px;
+  background-color: white;
+}
+.loginForm form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.loginForm form button {
+  float: right;
+}
+
+.loginForm input[type=text],
+.loginForm input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.flightDetails__body {
+  background: url("./../../img/background2.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Catamaran", sans-serif;
+}
+
+.flightDetails__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+.flightDetails__tooltip {
+  width: 250px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 6px;
+  position: absolute;
+  display: none;
+  z-index: 9;
+}
+.flightDetails__tooltip::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  background-color: white;
+  position: absolute;
+  left: -6px;
+  top: 68px;
+}
+
+.flightDetails__airplane {
+  width: calc(70vw - 200px);
+  height: calc(100vh - 150px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  margin-top: 30px;
+}
+.flightDetails__airplane svg {
+  height: 230%;
+  min-width: 130%;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+}
+
+.flightDetails__form {
+  margin: 20px auto;
+  max-width: 800px;
+  height: fit-content;
+  padding: 30px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(255, 255, 255, 0.7333333333);
+}
+
+@media (max-width: 800px) {
+  .flightDetails__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flightDetails__airplane {
+    width: calc(100vw - 50px);
+  }
+}
+.flightDetails__form--seats {
+  padding: 0;
+}
+
+html {
+  font-family: "Catamaran", sans-serif;
+}
+
+.summary__weather {
+  font-size: 0.8rem;
 }
 
 /*# sourceMappingURL=index.css.map */

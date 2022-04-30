@@ -1,9 +1,9 @@
-body {
+login__body {
   box-sizing: border-box;
 }
 
 /* The popup form - hidden by default */
-.form-popup {
+.loginForm {
   /* display: none; */
   position: fixed;
   left: 50%;
@@ -11,25 +11,20 @@ body {
   transform: translate(-50%, -50%);
   border: 5px solid #f1f1f1;
   z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container {
   max-width: 300px;
   padding: 50px;
   background-color: white;
 }
-.form-container form h3 {
+.loginForm form h3 {
   text-align: center;
   margin-bottom: 20px;
 }
-.form-container form button {
+.loginForm form button {
   float: right;
 }
 
-/* Full-width input fields */
-.form-container input[type=text],
-.form-container input[type=password] {
+.loginForm input[type=text],
+.loginForm input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -37,4 +32,4 @@ body {
   background: #f1f1f1;
 }
 
-/*# sourceMappingURL=login.css.map */
+/*# sourceMappingURL=loginLayout.css.map */

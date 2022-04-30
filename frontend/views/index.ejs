@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="./../assets/css/index.css">
 </head>
 
-<body>
+<body class="index__body">
   <% if(locals.user_path) { %>
   <%- include('login', {path: user_path}); -%>
   <% } else { %>
@@ -26,7 +26,7 @@
     <% } %>
  
   <form action="/getFlightData" class="flightForm" method="get">
-    <div class="rows">
+    <div class="flightForm__rows">
       <label for="departure_airport">Miejsce wylotu</label>
       <select class="form-control" name="departure" id="departure_airport"></select>
       <label for="destination">Miejsce docelowe</label>
@@ -41,7 +41,7 @@
         <option value="6">6</option>
       </select>
     </div>
-    <div class="rows">
+    <div class="flightForm__rows">
       <label for="date_from">Od:</label>
       <input class="form-control" type="date" name="date_from" id="date_from"
         value="<%= typeof searchData != 'undefined' ? searchData.date_from : '2022-04-01' %>">
@@ -49,15 +49,15 @@
       <input class="form-control" type="date" name="date_to" id="date_to"
         value="<%= typeof searchData != 'undefined' ? searchData.date_to : '2022-12-31' %>">
     </div>
-    <div class="rows">
+    <div class="flightForm__rows">
       <button class="btn btn-primary" ptype="submit">Wyszukaj lot</button>
     </div>
     <div>
-      <span class="weather_info__small" id="weather"></span>
+      <span class="flightForm__weather" id="weather"></span>
     </div>
   </form>
   <% if(locals.flightData && locals.flightData[0]) { %>
-  <div class="flights_list">
+  <div class="flightsList">
     
       <strong>Loty na trasie <%= flightData[0].departure_airport %> - <%= flightData[0].destination_airport %> od
         <%= searchData.date_from %> do <%= searchData.date_to %></strong>
@@ -96,7 +96,7 @@
     </table>
   </div>
   <% } else if (locals.flightData) { %>
-    <div class="flights_list">
+    <div class="flightsList">
       <p>Nie znaleziono żadnych lotów w wybranym terminie!</p>
     </div>
     <% }; %>
