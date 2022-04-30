@@ -47,7 +47,7 @@ function reservePlace() {
     if (this.style.fill == 'red') {
         console.log("zajęte!")
     }
-    if (this.style.fill == 'green') {
+    else if (this.style.fill == 'green') {
         this.style.fill = 'white';
         for (var i = 0; i < reserved_places.length; i++) {
             if (reserved_places[i] === this.id) {
