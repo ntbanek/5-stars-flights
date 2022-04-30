@@ -1,4 +1,6 @@
-.index__body, .signup__body, .summary__body {
+.index__body,
+.signup__body,
+.summary__body {
   background: url("/assets/img/background.jpg") no-repeat center center fixed;
   background-size: cover;
 }
@@ -75,7 +77,8 @@
 }
 
 @media (max-width: 576px) {
-  .flightForm, .flightsList {
+  .flightForm,
+.flightsList {
     max-width: 450px;
   }
 
@@ -84,8 +87,9 @@
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
-  .flightForm, .flightsList {
-    max-width: 600px;
+  .flightForm,
+.flightsList {
+    max-width: 700px;
   }
 }
 

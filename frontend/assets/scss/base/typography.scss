@@ -1,20 +1,22 @@
-@import '../utils/mixins.scss';
-@import '../utils/variables.scss';
-@import url('http://fonts.googleapis.com/css?family=Catamaran&subset=latin,latin-ext');
+@import "../utils/mixins.scss";
+@import "../utils/variables.scss";
+@import url("https://fonts.googleapis.com/css?family=Catamaran&subset=latin,latin-ext");
 
-html, body {
-    font-family: 'Catamaran', sans-serif;
+html,
+body {
+  font-family: "Catamaran", sans-serif;
 }
 
 .nav__brand {
-    font-size: 1.2rem;
-    font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
-.flightForm__weather, .summary__weather {
-    font-size: 0.8rem;
+.flightForm__weather,
+.summary__weather {
+  font-size: 0.8rem;
 }
 
 .summary {
-    font-size: 1.1em;
+  font-size: 1.1em;
 }

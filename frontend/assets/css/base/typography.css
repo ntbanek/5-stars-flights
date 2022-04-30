@@ -1,5 +1,6 @@
-@import url("http://fonts.googleapis.com/css?family=Catamaran&subset=latin,latin-ext");
-html, body {
+@import url("https://fonts.googleapis.com/css?family=Catamaran&subset=latin,latin-ext");
+html,
+body {
   font-family: "Catamaran", sans-serif;
 }
 
@@ -8,7 +9,8 @@ html, body {
   font-weight: bold;
 }
 
-.flightForm__weather, .summary__weather {
+.flightForm__weather,
+.summary__weather {
   font-size: 0.8rem;
 }
 

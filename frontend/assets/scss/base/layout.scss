@@ -1,77 +1,75 @@
-@import '../utils/mixins.scss';
-@import '../utils/variables.scss';
+@import "../utils/mixins.scss";
+@import "../utils/variables.scss";
 
-.index__body, .signup__body, .summary__body {
-    @include backgroundImage('/assets/img/background.jpg');
+.index__body,
+.signup__body,
+.summary__body {
+  @include backgroundImage("/assets/img/background.jpg");
 }
 
- .nav {
-    .btn {
-        margin-left: 10px;
-    }
- }
+.nav {
+  .btn {
+    margin-left: 10px;
+  }
+}
 
- .nav__logo {
-     width: 50px;
- }
+.nav__logo {
+  width: 50px;
+}
 
 .flightForm {
+  @include styleBox(800px, 10px, $boxBackgroundColor);
 
-    @include styleBox(800px, 10px,$boxBackgroundColor);
-    
-.form-control {
+  .form-control {
     width: auto;
-}
+  }
 }
 
 .flightForm__rows {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
 
 .flightsList {
+  @include styleBox(800px, 20px, $boxBackgroundColorLess);
 
-    @include styleBox(800px, 20px,$boxBackgroundColorLess);
-
-    table {
-        gap: 40px;
-    }
+  table {
+    gap: 40px;
+  }
 }
 
 .signupForm {
+  @include styleBox(500px, 7px, $boxBackgroundColorLess);
 
-    @include styleBox(500px, 7px,$boxBackgroundColorLess);
-
-    .form-control {
-    width:300px;
-}
+  .form-control {
+    width: 300px;
+  }
 }
 
 .summary {
+  @include styleBox(800px, 5px, $boxBackgroundColorLess);
 
-    @include styleBox(800px, 5px,$boxBackgroundColorLess);
-
-    select {
-        margin-left:20px;
-        width: 100px;
-    }
-
+  select {
+    margin-left: 20px;
+    width: 100px;
+  }
 }
-
 
 @media (max-width: $bp1) {
+  .flightForm,
+  .flightsList {
+    max-width: 450px;
+  }
 
-    .flightForm, .flightsList {
-        max-width: 450px;
-    }
-    .flightForm__rows {
-        flex-direction: column;
-    }
+  .flightForm__rows {
+    flex-direction: column;
+  }
 }
 
-@media (min-width: $bp2) and (max-width:$bp3) {
-    .flightForm, .flightsList {
-        max-width: 600px;
-    }
+@media (min-width: $bp2) and (max-width: $bp3) {
+  .flightForm,
+  .flightsList {
+    max-width: 700px;
+  }
 }
