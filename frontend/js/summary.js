@@ -28,7 +28,7 @@ document.getElementById("currency").addEventListener('change', function () {
                 document.getElementById("to_pay").innerText = price_pln.toFixed(2) + " zł";
                 return;
             } else if (this.value == 'USD') {
-                fetch("http://api.nbp.pl/api/exchangerates/rates/a/USD")
+                fetch("https://api.nbp.pl/api/exchangerates/rates/a/USD")
                     .then(res => res.json())
                     .then(data => {
                         price_usd = price_pln / data.rates[0].mid;
