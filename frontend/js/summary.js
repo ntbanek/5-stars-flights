@@ -1,6 +1,6 @@
 async function showForecast() {
 
-    fetch("http://api.positionstack.com/v1/forward?access_key=c347fd2a84ccee6daeac647234c8c05e&query=" + destination)
+    fetch("https://api.positionstack.com/v1/forward?access_key=c347fd2a84ccee6daeac647234c8c05e&query=" + destination)
         .then(result => result.json())
         .then(data => fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + data.data[0].latitude + "&lon=" + data.data[0].longitude + "&exclude=hourly,minutely,alerts&appid=5f2b0d185ada2f13f59299e45c62ca85"))
         .then(result => result.json())
@@ -20,7 +20,7 @@ if (day_difference <= 16) {
 }
 
 document.getElementById("currency").addEventListener('change', function () {
-    fetch("http://api.nbp.pl/api/exchangerates/rates/a/EUR")
+    fetch("https://api.nbp.pl/api/exchangerates/rates/a/EUR")
         .then(res => res.json())
         .then(data => price_pln = data.rates[0].mid * sum_price_euro)
         .then(price_pln => {
